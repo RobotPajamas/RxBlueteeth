@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/RxBlueteeth.iml" filepath="$PROJECT_DIR$/RxBlueteeth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rxblueteeth/rxblueteeth.iml" filepath="$PROJECT_DIR$/rxblueteeth/rxblueteeth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rxblueteeth-sample/rxblueteeth-sample.iml" filepath="$PROJECT_DIR$/rxblueteeth-sample/rxblueteeth-sample.iml" />
+    </modules>
+  </component>
+</project>

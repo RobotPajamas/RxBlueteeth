@@ -22,10 +22,10 @@ fun <T> Reactive<T>.discoverServices(): Observable<Boolean> where T : BlueteethD
     return Observable.create { emitter ->
         this.base.discoverServices { result ->
             result.failure {
-                emitter.onError(result.error)
+                emitter.onError(it)
             }
             result.success {
-                emitter.onNext(discovered)
+                emitter.onNext(it)
                 emitter.onComplete()
             }
         }
@@ -35,7 +35,7 @@ fun <T> Reactive<T>.discoverServices(): Observable<Boolean> where T : BlueteethD
 }
 
 // Maybe this should be a Single/Completable vs Observable?
-fun <T> Reactive<T>.read(characteristic: UUID, service: UUID): Observable<Boolean> where T : BlueteethDevice {
+fun <T> Reactive<T>.read(characteristic: UUID, service: UUID): Observable<ByteArray> where T : BlueteethDevice {
     return Observable.create { emitter ->
         this.base.read(characteristic, service) { result ->
             result.failure {
@@ -49,10 +49,4 @@ fun <T> Reactive<T>.read(characteristic: UUID, service: UUID): Observable<Boolea
 
         emitter.setCancellable { /* TODO? */ }
     }
-}
-
-fun blahblah() {
-    val device = Blueteeth.peripherals[0]
-    device.rx.connect()
-            .subscribe()
 }

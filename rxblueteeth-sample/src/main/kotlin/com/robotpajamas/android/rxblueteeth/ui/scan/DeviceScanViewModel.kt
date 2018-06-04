@@ -4,7 +4,10 @@ import android.databinding.BaseObservable
 import android.databinding.Bindable
 import com.robotpajamas.android.rxblueteeth.BR
 import com.robotpajamas.blueteeth.Blueteeth
+import com.robotpajamas.blueteeth.BlueteethDevice
 import com.robotpajamas.blueteeth.listeners.OnScanCompletedListener
+import com.robotpajamas.rxblueteeth.rx
+import com.robotpajamas.rxblueteeth.scan
 
 class DeviceScanViewModel(private val stateHandler: StateHandler, private val navigator: Navigator) : BaseObservable() {
 

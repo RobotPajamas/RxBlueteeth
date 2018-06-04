@@ -1,5 +1,6 @@
-package com.robotpajamas.blueteeth
+package com.robotpajamas.rxblueteeth
 
+import com.robotpajamas.blueteeth.BlueteethDevice
 import io.reactivex.Observable
 import java.util.*
 

@@ -1,4 +1,4 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
@@ -10,7 +10,6 @@ def versionPatch = 0
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "com.robotpajamas.blueteeth.myapplication"
         minSdkVersion 19
         targetSdkVersion 22
         versionCode versionMajor * 10000 + versionMinor * 100 + versionPatch
@@ -33,7 +32,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
-    implementation 'com.robotpajamas.blueteeth:blueteeth:0.3.0'
+    api 'com.robotpajamas.blueteeth:blueteeth:0.3.0'
 
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
     implementation 'io.reactivex.rxjava2:rxjava:2.1.14'

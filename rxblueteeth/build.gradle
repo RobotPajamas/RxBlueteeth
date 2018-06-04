@@ -1,14 +1,38 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 
 // Manifest version information
 def versionMajor = 0
-def versionMinor = 3
-def versionPatch = 0
+def versionMinor = 0
+def versionPatch = 1
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'rxblueteeth'
+
+    publishedGroupId = 'com.robotpajamas.blueteeth'
+    libraryName = 'RxBlueteeth'
+    artifact = 'rxblueteeth'
+
+    libraryDescription = 'An Android Bluetooth library'
+
+    siteUrl = 'https://github.com/RobotPajamas/RxBlueteeth'
+    gitUrl = 'https://github.com/RobotPajamas/RxBlueteeth.git'
+
+    libraryVersion = "${versionMajor}.${versionMinor}.${versionPatch}"
+
+    developerId = 'sureshjoshi'
+    developerName = 'Suresh Joshi'
+    developerEmail = 'suresh@robotpajamas.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
 
 android {
     compileSdkVersion 27
+    buildToolsVersion '27.0.3'
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 22
@@ -39,4 +63,11 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxkotlin:2.2.0'
 
     testImplementation 'junit:junit:4.12'
+}
+
+apply from: 'https://raw.githubusercontent.com/sureshjoshi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/sureshjoshi/JCenter/master/bintrayv1.gradle'
+
+tasks.withType(Javadoc) {
+    enabled = false
 }

@@ -22,10 +22,10 @@ fun <T> Reactive<T>.connect(): Observable<Boolean> where T : Device {
 fun <T> Reactive<T>.discoverServices(): Observable<Boolean> where T : Device {
     return Observable.create { emitter ->
         this.base.discoverServices { result ->
-            result.failure {
+            result.onFailure {
                 emitter.onError(it)
             }
-            result.success {
+            result.onSuccess {
                 emitter.onNext(it)
                 emitter.onComplete()
             }
@@ -39,10 +39,10 @@ fun <T> Reactive<T>.discoverServices(): Observable<Boolean> where T : Device {
 fun <T> Reactive<T>.read(characteristic: UUID, service: UUID): Observable<ByteArray> where T : Device {
     return Observable.create { emitter ->
         this.base.read(characteristic, service) { result ->
-            result.failure {
+            result.onFailure {
                 emitter.onError(it)
             }
-            result.success {
+            result.onSuccess {
                 emitter.onNext(it)
                 emitter.onComplete()
             }
